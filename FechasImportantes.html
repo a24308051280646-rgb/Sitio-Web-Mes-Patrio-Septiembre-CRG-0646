@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fechas Importantes - México Mes Patrio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Montserrat:ital,wght@0,600;0,700;1,500;1,600&family=Fredoka:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      background-color: #f2f2f0;
+      background-image: radial-gradient(#d3d3d3 1px, transparent 1px), radial-gradient(#d3d3d3 1px, #f2f2f0 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      padding: 60px 30px;
+    }
+
+    /* CONTENEDOR PRINCIPAL EXTRA GRANDE */
+    .card-container {
+      position: relative;
+      width: 98vw;
+      max-width: 2200px;
+      min-height: 1300px;
+      background: #eef0ed;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.85) 0%, rgba(238,240,237,0.4) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C45 20 60 35 80 40C60 45 45 60 40 80C35 60 20 45 0 40C20 35 35 20 40 0Z' fill='%23d6dad3' fill-opacity='0.3'/%3E%3C/svg%3E");
+      border-radius: 30px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      overflow: hidden;
+      padding: 60px 75px;
+      border: 2px solid #dedede;
+    }
+
+    /* NAVEGACIÓN SUPERIOR CON MONEDAS MÁS PEQUEÑAS */
+    .top-nav {
+      position: absolute;
+      top: 35px;
+      left: 50px;
+      display: flex;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .coin-btn {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      background-image: url('moneda.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      padding: 14px;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.22));
+    }
+
+    .coin-btn:hover {
+      transform: translateY(-6px) scale(1.1);
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.32));
+    }
+
+    .coin-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #000;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: 0.3px;
+      text-shadow: 
+        1.5px  1.5px 2px rgba(255, 255, 255, 1),
+       -1.5px -1.5px 2px rgba(255, 255, 255, 1),
+        1.5px -1.5px 2px rgba(255, 255, 255, 1),
+       -1.5px  1.5px 2px rgba(255, 255, 255, 1);
+    }
+
+    /* MOÑO TRICOLOR AMPLIADO */
+    .ribbon-top-right {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      width: 520px;
+      height: 460px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ENCABEZADO CENTRADO CON MONEDA INTEGRADA */
+    .header {
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 60px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .title-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .main-title {
+      font-family: 'Forte', cursive, sans-serif;
+      font-size: 8.5rem;
+      color: #006847;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      line-height: 0.85;
+      text-shadow: 4px 5px 0px rgba(0,0,0,0.15);
+    }
+
+    .header-coin {
+      position: relative;
+      top: -25px;
+      left: 40px;
+    }
+
+    .sub-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 4.8rem;
+      color: #3e2723;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* INSIGNIA DE FECHA GIGANTE */
+    .date-badge {
+      position: absolute;
+      top: 35px;
+      right: 80px;
+      text-align: center;
+      z-index: 5;
+    }
+
+    .date-badge .month {
+      font-family: 'Great Vibes', cursive;
+      font-size: 6.2rem;
+      color: #006847;
+      line-height: 1;
+      display: block;
+      transform: rotate(-5deg);
+    }
+
+    .date-badge .day {
+      font-family: 'Caveat', cursive;
+      font-size: 10rem;
+      color: #006847;
+      line-height: 0.65;
+      font-weight: bold;
+    }
+
+    /* LÍNEA DEL TIEMPO EXPANDIDA XL */
+    .timeline {
+      position: relative;
+      max-width: 1950px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      top: 40px;
+      bottom: 40px;
+      left: 50%;
+      width: 14px;
+      background: #2d5a27;
+      transform: translateX(-50%);
+      border-radius: 7px;
+    }
+
+    .timeline-line::after {
+      content: '';
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-top: 28px solid #2d5a27;
+    }
+
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 65px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .timeline-col {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    .timeline-col.left {
+      justify-content: space-between;
+      text-align: right;
+    }
+
+    .timeline-col.right {
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .node {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #3e7033 0%, #1c3d17 100%);
+      border: 6px solid #eef0ed;
+      box-shadow: 0 0 0 4px #2d5a27;
+      z-index: 5;
+      flex-shrink: 0;
+    }
+
+    .date-title {
+      font-family: 'Bauhaus 93', sans-serif;
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .desc-text {
+      font-family: 'TT Milks Casual Script One', cursive, sans-serif;
+      font-size: 1.75rem;
+      font-style: italic;
+      color: #222;
+      line-height: 1.4;
+      max-width: 580px;
+    }
+
+    .thumb-img {
+      max-height: 220px;
+      max-width: 300px;
+      object-fit: contain;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .circle-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #8bc34a;
+      flex-shrink: 0;
+    }
+
+    .arrow-icon {
+      font-size: 2rem;
+      color: #222;
+      margin: 0 12px;
+    }
+
+    /* FOOTER XL */
+    .footer-info {
+      position: absolute;
+      bottom: 30px;
+      right: 50px;
+      text-align: left;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.4;
+      z-index: 5;
+    }
+
+    .footer-info p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 1400px) {
+      .card-container {
+        width: 100%;
+        min-height: auto;
+        padding-bottom: 160px;
+      }
+      .top-nav {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 30px;
+        justify-content: center;
+      }
+      .coin-btn {
+        width: 100px;
+        height: 100px;
+      }
+      .coin-text {
+        font-size: 0.8rem;
+      }
+      .title-wrapper {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .header-coin {
+        top: 0;
+        left: 0;
+      }
+      .main-title {
+        font-size: 5.5rem;
+      }
+      .sub-title {
+        font-size: 3.2rem;
+      }
+      .date-badge {
+        right: 30px;
+        top: 30px;
+      }
+      .date-badge .day {
+        font-size: 7.5rem;
+      }
+      .desc-text {
+        max-width: 320px;
+        font-size: 1.2rem;
+      }
+      .thumb-img {
+        max-height: 140px;
+        max-width: 180px;
+      }
+      .circle-avatar {
+        width: 130px;
+        height: 130px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+
+    <!-- BOTONES MONEDA DE NAVEGACIÓN -->
+    <nav class="top-nav">
+      <a href="index.html" class="coin-btn">
+        <span class="coin-text">INICIO</span>
+      </a>
+      <a href="personajes_ilustres.html" class="coin-btn">
+        <span class="coin-text">PERSONAJES<br>ILUSTRES</span>
+      </a>
+      <a href="datosYmitos.html" class="coin-btn">
+        <span class="coin-text">DATOS<br>CURIOSOS<br>Y MITOS</span>
+      </a>
+    </nav>
+
+    <!-- MOÑO TRICOLOR -->
+    <svg class="ribbon-top-right" viewBox="0 0 300 300" fill="none">
+      <path d="M 120 0 C 180 80, 220 120, 300 160" stroke="#006847" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M 135 0 C 195 80, 235 120, 300 175" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M 150 0 C 210 80, 250 120, 300 190" stroke="#ce1126" stroke-width="18" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <!-- ENCABEZADO CON MONEDA FECHAS IMPORTANTES ALINEADA -->
+    <header class="header">
+      <div class="title-wrapper">
+        <h1 class="main-title">MÉXICO</h1>
+        <a href="FechasImportantes.html" class="coin-btn header-coin">
+          <span class="coin-text">FECHAS<br>IMPORTANTES</span>
+        </a>
+      </div>
+      <h2 class="sub-title">Mes Patrio</h2>
+    </header>
+
+    <!-- INSIGNIA DE FECHA -->
+    <div class="date-badge">
+      <span class="month">Septiembre</span>
+      <span class="day">16</span>
+    </div>
+
+    <!-- LÍNEA DEL TIEMPO XL -->
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <!-- 15 de septiembre -->
+      <div class="timeline-row">
+        <div class="timeline-col left"></div>
+        <div class="node"></div>
+        <div class="timeline-col right">
+          <div>
+            <span class="date-title">15 de septiembre (1810)</span>
+            <span class="arrow-icon">▶</span>
+          </div>
+          <p class="desc-text">Conmemoración nocturna del inicio del movimiento insurgente con la ceremonia del Grito de Independencia.</p>
+          <img src="miguelH.png" class="thumb-img" alt="Grito de Independencia">
+        </div>
+      </div>
+
+      <!-- 16 de septiembre -->
+      <div class="timeline-row">
+        <div class="timeline-col left">
+          <img src="hidalgo.png" class="circle-avatar" alt="Miguel Hidalgo">
+          <p class="desc-text">Inicio oficial de la Guerra de Independencia con el llamado a las armas hecho por Miguel Hidalgo en Dolores, Guanajuato.</p>
+          <div>
+            <span class="arrow-icon">◀</span>
+            <span class="date-title">16 de septiembre (1810)</span>
+          </div>
+        </div>
+        <div class="node"></div>
+        <div class="timeline-col right"></div>
+      </div>
+
+      <!-- 27 de septiembre -->
+      <div class="timeline-row">
+        <div class="timeline-col left"></div>
+        <div class="node"></div>
+        <div class="timeline-col right">
+          <div>
+            <span class="date-title">27 de septiembre (1821)</span>
+            <span class="arrow-icon">▶</span>
+          </div>
+          <p class="desc-text">Consumación de la Independencia de México tras la entrada triunfal del Ejército Trigarante a la Capital.</p>
+          <div style="width: 300px;"></div>
+        </div>
+      </div>
+
+      <!-- 28 de septiembre -->
+      <div class="timeline-row">
+        <div class="timeline-col left">
+          <img src="acta.png" class="thumb-img" alt="Acta de Independencia">
+          <p class="desc-text">Redacción y firma del Acta de Independencia del Imperio Mexicano.</p>
+          <div>
+            <span class="arrow-icon">◀</span>
+            <span class="date-title">28 de septiembre (1821)</span>
+          </div>
+        </div>
+        <div class="node"></div>
+        <div class="timeline-col right"></div>
+      </div>
+
+      <!-- 13 de septiembre -->
+      <div class="timeline-row">
+        <div class="timeline-col left"></div>
+        <div class="node"></div>
+        <div class="timeline-col right">
+          <div>
+            <span class="date-title">13 de septiembre (1847)</span>
+            <span class="arrow-icon">▶</span>
+          </div>
+          <p class="desc-text">Batalla de Chapultepec y conmemoración de la gesta de los Niños Héroes frente a la invasión estadounidense.</p>
+          <img src="batalla.png" class="thumb-img" alt="Batalla de Chapultepec">
+        </div>
+      </div>
+
+      <!-- 19 de septiembre -->
+      <div class="timeline-row">
+        <div class="timeline-col left">
+          <img src="bandera.png" class="thumb-img" alt="Bandera de México">
+          <p class="desc-text">Día Nacional de la Protección Civil, fecha de homenaje a las víctimas de los sismos y al espíritu solidario del país.</p>
+          <div>
+            <span class="arrow-icon">◀</span>
+            <span class="date-title">19 de septiembre (1985 / 2017)</span>
+          </div>
+        </div>
+        <div class="node"></div>
+        <div class="timeline-col right"></div>
+      </div>
+    </div>
+
+    <!-- DATOS DEL ALUMNO -->
+    <footer class="footer-info">
+      <p><strong>Nombre:</strong> Rangel Garcia Cesar</p>
+      <p><strong>NO Control:</strong> 24308051280646</p>
+      <p><strong>Grado y Grupo:</strong> 5-I</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personajes Ilustres - México Mes Patrio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Montserrat:wght@600;700;800&family=Fredoka:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      background-color: #f2f2f0;
+      background-image: radial-gradient(#d3d3d3 1px, transparent 1px), radial-gradient(#d3d3d3 1px, #f2f2f0 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 30px;
+      overflow-x: hidden;
+    }
+
+    /* CONTENEDOR PRINCIPAL HOMOLOGADO */
+    .card-container {
+      position: relative;
+      width: 98vw;
+      max-width: 2200px;
+      min-height: 1300px;
+      background: #eef0ed;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.85) 0%, rgba(238,240,237,0.5) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C45 20 60 35 80 40C60 45 45 60 40 80C35 60 20 45 0 40C20 35 35 20 40 0Z' fill='%23d6dad3' fill-opacity='0.25'/%3E%3C/svg%3E");
+      border-radius: 30px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      border: 2px solid #dedede;
+      padding: 60px 75px 140px 75px;
+      overflow: hidden;
+    }
+
+    /* BARRA SUPERIOR CON MONEDAS IZQUIERDAS */
+    .top-nav {
+      position: absolute;
+      top: 35px;
+      left: 50px;
+      display: flex;
+      gap: 25px;
+      z-index: 10;
+    }
+
+    .coin-btn {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background-image: url('moneda.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      padding: 18px;
+      filter: drop-shadow(0 8px 15px rgba(0,0,0,0.25));
+    }
+
+    .coin-btn:hover {
+      transform: translateY(-8px) scale(1.12);
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.35));
+    }
+
+    .coin-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #000;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+      text-shadow: 
+        2px  2px 3px rgba(255, 255, 255, 1),
+       -2px -2px 3px rgba(255, 255, 255, 1),
+        2px -2px 3px rgba(255, 255, 255, 1),
+       -2px  2px 3px rgba(255, 255, 255, 1);
+    }
+
+    /* ENCABEZADO CENTRADO CON LA MONEDA A LA MISMA ALTURA QUE LAS DEMÁS (TOP: 35px) */
+    .header {
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .title-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .main-title {
+      font-family: 'Forte', cursive, sans-serif;
+      font-size: 8.5rem;
+      color: #006847;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      line-height: 0.85;
+      text-shadow: 4px 5px 0px rgba(0,0,0,0.15);
+    }
+
+    /* MONEDA ALINEADA A LA MISMA ALTURA QUE LAS DEMÁS MONEDAS */
+    .header-coin {
+      position: relative;
+      top: -40px;
+      left: 70px;
+    }
+
+    .sub-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 4.8rem;
+      color: #3e2723;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* FECHA SEPTIEMBRE 16 */
+    .date-badge {
+      position: absolute;
+      top: 35px;
+      right: 80px;
+      text-align: center;
+      z-index: 5;
+    }
+
+    .date-badge .month {
+      font-family: 'Great Vibes', cursive;
+      font-size: 6.2rem;
+      color: #006847;
+      line-height: 1;
+      display: block;
+      transform: rotate(-5deg);
+    }
+
+    .date-badge .day {
+      font-family: 'Caveat', cursive;
+      font-size: 10rem;
+      color: #006847;
+      line-height: 0.65;
+      font-weight: bold;
+    }
+
+    /* GRID PRINCIPAL DE PERSONAJES */
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 35px;
+      align-items: start;
+      margin-top: 30px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .character-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .character-img {
+      width: 280px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.22);
+      background-color: #fff;
+      margin-bottom: 20px;
+      border: 5px solid #fff;
+    }
+
+    .character-desc {
+      font-family: 'Caveat', cursive;
+      font-size: 2.1rem;
+      color: #1a1a1a;
+      line-height: 1.25;
+      max-width: 380px;
+      font-weight: 700;
+    }
+
+    /* POSICIONAMIENTO DINÁMICO DE TARJETAS */
+    .card-mh { margin-top: 20px; }
+    .card-jo { margin-top: 60px; }
+    .card-jm { margin-top: -10px; }
+    .card-vg { margin-top: 80px; }
+
+    .card-jo .character-desc, .card-vg .character-desc {
+      order: -1;
+      margin-bottom: 20px;
+    }
+
+    /* ILUSTRACIÓN BANDERA EN ESQUINA INFERIOR IZQUIERDA */
+    .left-illustration {
+      position: absolute;
+      bottom: -15px;
+      left: -15px;
+      width: 320px;
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    /* PIE DE PÁGINA ESQUINA INFERIOR DERECHA */
+    .footer-info {
+      position: absolute;
+      bottom: 30px;
+      right: 50px;
+      text-align: left;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.4;
+      z-index: 6;
+    }
+
+    .footer-info p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 1400px) {
+      .card-container {
+        width: 100%;
+        min-height: auto;
+        padding-bottom: 160px;
+      }
+      .top-nav {
+        position: relative;
+        top: 0;
+        left: 0;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      .coin-btn {
+        width: 130px;
+        height: 130px;
+      }
+      .coin-text {
+        font-size: 0.95rem;
+      }
+      .characters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+      .card-mh, .card-jo, .card-jm, .card-vg {
+        margin-top: 0;
+      }
+      .title-wrapper {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .header-coin {
+        top: 0;
+        left: 0;
+      }
+      .main-title {
+        font-size: 5.5rem;
+      }
+      .sub-title {
+        font-size: 3.2rem;
+      }
+      .date-badge {
+        right: 30px;
+        top: 30px;
+      }
+      .character-img {
+        width: 220px;
+        height: 280px;
+      }
+      .character-desc {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+
+    <!-- BOTONES MONEDA EN LA IZQUIERDA -->
+    <nav class="top-nav">
+      <a href="index.html" class="coin-btn">
+        <span class="coin-text">INICIO</span>
+      </a>
+      <a href="fechasimportantes.html" class="coin-btn">
+        <span class="coin-text">FECHAS<br>IMPORTANTES</span>
+      </a>
+      <a href="datosYmitos.html" class="coin-btn">
+        <span class="coin-text">DATOS<br>CURIOSOS<br>Y MITOS</span>
+      </a>
+    </nav>
+
+    <!-- FECHA SEPTIEMBRE 16 -->
+    <div class="date-badge">
+      <span class="month">Septiembre</span>
+      <span class="day">16</span>
+    </div>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+      <div class="title-wrapper">
+        <h1 class="main-title">MÉXICO</h1>
+        <a href="personajes_ilustres.html" class="coin-btn header-coin">
+          <span class="coin-text">PERSONAJES<br>ILUSTRES</span>
+        </a>
+      </div>
+      <h2 class="sub-title">Mes Patrio</h2>
+    </header>
+
+    <!-- PERSONAJES ILUSTRES -->
+    <section class="characters-grid">
+
+      <!-- Miguel Hidalgo -->
+      <article class="character-card card-mh">
+        <img src="mh.png" alt="Miguel Hidalgo y Costilla" class="character-img">
+        <p class="character-desc">
+          <strong>Miguel Hidalgo y Costilla:</strong> "El Padre de la Patria", sacerdote que inició el levantamiento armado y abolió la esclavitud en los territorios bajo su mando.
+        </p>
+      </article>
+
+      <!-- Josefa Ortiz de Domínguez -->
+      <article class="character-card card-jo">
+        <p class="character-desc">
+          <strong>Josefa Ortiz de Domínguez:</strong> "La Corregidora", pieza clave en la conspiración de Querétaro que avisó oportunamente a los insurgentes cuando la causa fue descubierta.
+        </p>
+        <img src="jo.png" alt="Josefa Ortiz de Domínguez" class="character-img">
+      </article>
+
+      <!-- José María Morelos -->
+      <article class="character-card card-jm">
+        <img src="jm.png" alt="José María Morelos y Pavón" class="character-img">
+        <p class="character-desc">
+          <strong>José María Morelos y Pavón:</strong> "El Siervo de la Nación", estratega militar y autor de los Sentimientos de la Nación, documento base del constitucionalismo mexicano.
+        </p>
+      </article>
+
+      <!-- Vicente Guerrero -->
+      <article class="character-card card-vg">
+        <p class="character-desc">
+          <strong>Vicente Guerrero:</strong> General insurgente que mantuvo la resistencia en el sur y selló la paz con el Abrazo de Acatempan.
+        </p>
+        <img src="vg.png" alt="Vicente Guerrero" class="character-img">
+      </article>
+
+    </section>
+
+    <!-- BANDERA -->
+    <img src="bandera.png" class="left-illustration" alt="Bandera de México">
+
+    <!-- DATOS DEL ALUMNO -->
+    <footer class="footer-info">
+      <p><strong>Nombre:</strong> Rangel Garcia Cesar</p>
+      <p><strong>NO Control:</strong> 24308051280646</p>
+      <p><strong>Grado y Grupo:</strong> 5-I</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

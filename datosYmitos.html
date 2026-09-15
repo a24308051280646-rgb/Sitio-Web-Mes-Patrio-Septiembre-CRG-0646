@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos Curiosos y Mitos - México Mes Patrio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Montserrat:ital,wght@0,600;0,700;1,500;1,600&family=Fredoka:wght@600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      background-color: #f2f2f0;
+      background-image: radial-gradient(#d3d3d3 1px, transparent 1px), radial-gradient(#d3d3d3 1px, #f2f2f0 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      padding: 60px 30px;
+    }
+
+    /* CONTENEDOR PRINCIPAL EXTRA GRANDE */
+    .card-container {
+      position: relative;
+      width: 98vw;
+      max-width: 2200px;
+      min-height: 1300px;
+      background: #eef0ed;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.85) 0%, rgba(238,240,237,0.4) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C45 20 60 35 80 40C60 45 45 60 40 80C35 60 20 45 0 40C20 35 35 20 40 0Z' fill='%23d6dad3' fill-opacity='0.3'/%3E%3C/svg%3E");
+      border-radius: 30px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+      overflow: hidden;
+      padding: 60px 75px 120px 75px;
+      border: 2px solid #dedede;
+    }
+
+    /* NAVEGACIÓN SUPERIOR CON MONEDAS REDUCIDAS */
+    .top-nav {
+      position: absolute;
+      top: 35px;
+      left: 50px;
+      display: flex;
+      gap: 20px;
+      z-index: 10;
+    }
+
+    .coin-btn {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      background-image: url('moneda.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      padding: 14px;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.22));
+    }
+
+    .coin-btn:hover {
+      transform: translateY(-6px) scale(1.1);
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.32));
+    }
+
+    .coin-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #000;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: 0.3px;
+      text-shadow: 
+        1.5px  1.5px 2px rgba(255, 255, 255, 1),
+       -1.5px -1.5px 2px rgba(255, 255, 255, 1),
+        1.5px -1.5px 2px rgba(255, 255, 255, 1),
+       -1.5px  1.5px 2px rgba(255, 255, 255, 1);
+    }
+
+    /* MOÑO TRICOLOR AMPLIADO */
+    .ribbon-top-right {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      width: 520px;
+      height: 460px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ENCABEZADO MONUMENTAL CON MONEDA INTEGRADA */
+    .header {
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 70px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .title-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .main-title {
+      font-family: 'Forte', cursive, sans-serif;
+      font-size: 8.5rem;
+      color: #006847;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      line-height: 0.85;
+      text-shadow: 4px 5px 0px rgba(0,0,0,0.15);
+    }
+
+    .header-coin {
+      position: relative;
+      top: -25px;
+      left: 40px;
+    }
+
+    .sub-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 4.8rem;
+      color: #3e2723;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* INSIGNIA DE FECHA GIGANTE */
+    .date-badge {
+      position: absolute;
+      top: 35px;
+      right: 80px;
+      text-align: center;
+      z-index: 5;
+    }
+
+    .date-badge .month {
+      font-family: 'Great Vibes', cursive;
+      font-size: 6.2rem;
+      color: #006847;
+      line-height: 1;
+      display: block;
+      transform: rotate(-5deg);
+    }
+
+    .date-badge .day {
+      font-family: 'Caveat', cursive;
+      font-size: 10rem;
+      color: #006847;
+      line-height: 0.65;
+      font-weight: bold;
+    }
+
+    /* ESTRUCTURA PRINCIPAL DE CONTENIDO (GRID DE 3 COLUMNAS) */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 55px;
+      align-items: start;
+      max-width: 2000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 4;
+    }
+
+    /* TARJETAS DE CONTENIDO */
+    .info-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .card-title {
+      font-family: 'Dancing Script', 'Caveat', cursive;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .card-text {
+      font-family: 'Dancing Script', 'Caveat', cursive;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.35;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    /* ESTILOS DE IMÁGENES XL */
+    .img-box {
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .img-box:hover {
+      transform: scale(1.03);
+    }
+
+    .img-fiesta {
+      width: 100%;
+      max-width: 480px;
+      height: 320px;
+    }
+
+    .img-pipila {
+      width: 100%;
+      max-width: 420px;
+      height: 380px;
+    }
+
+    .img-mitoj {
+      width: 100%;
+      max-width: 450px;
+      height: 300px;
+    }
+
+    .img-chiles {
+      width: 100%;
+      max-width: 440px;
+      height: 320px;
+      border-radius: 50%;
+    }
+
+    /* FOOTER XL */
+    .footer-info {
+      position: absolute;
+      bottom: 30px;
+      right: 50px;
+      text-align: left;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.4;
+      z-index: 5;
+    }
+
+    .footer-info p {
+      margin: 4px 0;
+    }
+
+    @media (max-width: 1400px) {
+      .card-container {
+        width: 100%;
+        min-height: auto;
+        padding-bottom: 160px;
+      }
+      .top-nav {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 30px;
+        justify-content: center;
+      }
+      .coin-btn {
+        width: 100px;
+        height: 100px;
+      }
+      .coin-text {
+        font-size: 0.8rem;
+      }
+      .title-wrapper {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .header-coin {
+        top: 0;
+        left: 0;
+      }
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .main-title {
+        font-size: 5.5rem;
+      }
+      .sub-title {
+        font-size: 3.2rem;
+      }
+      .date-badge {
+        right: 30px;
+        top: 30px;
+      }
+      .card-title {
+        font-size: 2.4rem;
+      }
+      .card-text {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+
+    <!-- BOTONES MONEDA DE NAVEGACIÓN -->
+    <nav class="top-nav">
+      <a href="index.html" class="coin-btn">
+        <span class="coin-text">INICIO</span>
+      </a>
+      <a href="fechasimportantes.html" class="coin-btn">
+        <span class="coin-text">FECHAS<br>IMPORTANTES</span>
+      </a>
+      <a href="personajes_ilustres.html" class="coin-btn">
+        <span class="coin-text">PERSONAJES<br>ILUSTRES</span>
+      </a>
+    </nav>
+
+    <!-- MOÑO TRICOLOR -->
+    <svg class="ribbon-top-right" viewBox="0 0 300 300" fill="none">
+      <path d="M 120 0 C 180 80, 220 120, 300 160" stroke="#006847" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M 135 0 C 195 80, 235 120, 300 175" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M 150 0 C 210 80, 250 120, 300 190" stroke="#ce1126" stroke-width="18" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <!-- ENCABEZADO CON MONEDA DATOS CURIOSOS Y MITOS ALINEADA -->
+    <header class="header">
+      <div class="title-wrapper">
+        <h1 class="main-title">MÉXICO</h1>
+        <a href="datosYmitos.html" class="coin-btn header-coin">
+          <span class="coin-text">DATOS<br>CURIOSOS<br>Y MITOS</span>
+        </a>
+      </div>
+      <h2 class="sub-title">Mes Patrio</h2>
+    </header>
+
+    <!-- INSIGNIA DE FECHA GIGANTE -->
+    <div class="date-badge">
+      <span class="month">Septiembre</span>
+      <span class="day">16</span>
+    </div>
+
+    <!-- REJILLA DE DATOS CURIOSOS Y MITOS -->
+    <div class="content-grid">
+
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="info-card">
+        <img src="fiesta.png" class="img-box img-fiesta" alt="Fiesta del 15 de Septiembre" style="margin-bottom: 25px;">
+        <h3 class="card-title">El origen de la fiesta del 15:</h3>
+        <p class="card-text">
+          Miguel Hidalgo dio el Grito la madrugada del 16 de septiembre. La celebración pública en la noche del 15 se consolidó durante el siglo XIX para evitar actos solemnes a altas horas de la madrugada y coincidió con el cumpleaños de Porfirio Díaz.
+        </p>
+      </div>
+
+      <!-- COLUMNA CENTRAL -->
+      <div>
+        <div class="info-card">
+          <h3 class="card-title">La hazaña de "El Pípila":</h3>
+          <p class="card-text">
+            Juan José de los Reyes Martínez personifica el esfuerzo colectivo de los mineros de Guanajuato en la toma de la Alhóndiga de Granaditas, más que un hecho atribuible a un solo individuo.
+          </p>
+          <img src="pipila.png" class="img-box img-pipila" alt="El Pípila">
+        </div>
+
+        <div class="info-card" style="margin-top: 30px;">
+          <img src="mitoj.png" class="img-box img-mitoj" alt="Batalla de Chapultepec" style="margin-bottom: 20px;">
+          <h3 class="card-title">El mito de Juan Escutia:</h3>
+          <p class="card-text">
+            La narrativa del cadete envolviéndose en la Bandera Nacional antes de arrojarse al vacío forma parte del romanticismo patriótico decimonónico para exclamar el heroísmo de la defensa de Chapultepec.
+          </p>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA -->
+      <div class="info-card">
+        <h3 class="card-title">Gastronomía patria:</h3>
+        <p class="card-text">
+          Los Chiles en Nogada fueron elaborados en 1821 por monjas agustinas de Puebla utilizando ingredientes de temporada para representar los colores del Ejército Trigarante (verde, blanco y rojo).
+        </p>
+        <img src="chiles.png" class="img-box img-chiles" alt="Chiles en Nogada">
+      </div>
+
+    </div>
+
+    <!-- PIE DE PÁGINA XL -->
+    <footer class="footer-info">
+      <p><strong>Nombre:</strong> Rangel Garcia Cesar</p>
+      <p><strong>NO Control:</strong> 24308051280646</p>
+      <p><strong>Grado y Grupo:</strong> 5-I</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

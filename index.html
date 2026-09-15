@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>México - Mes Patrio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Montserrat:wght@700;800;900&family=Fredoka:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      background-color: #f2f2f0;
+      background-image: radial-gradient(#d3d3d3 1px, transparent 1px), radial-gradient(#d3d3d3 1px, #f2f2f0 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      padding: 40px 20px;
+    }
+
+    /* CONTENEDOR PRINCIPAL MÁS GRANDE */
+    .card-container {
+      position: relative;
+      width: 95vw;
+      max-width: 1550px;
+      min-height: 860px;
+      background: #eef0ed;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(238,240,237,0.4) 100%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C45 20 60 35 80 40C60 45 45 60 40 80C35 60 20 45 0 40C20 35 35 20 40 0Z' fill='%3C%3Fxml version='1.0' encoding='UTF-8'%3E%3Cpath fill='%23d6dad3' fill-opacity='0.3' d='M0 0h80v80H0z'/%3E'/%3E%3C/svg%3E");
+      border-radius: 20px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #e0e0e0;
+      padding: 40px 50px;
+    }
+
+    /* MOÑO TRICOLOR AMPLIADO */
+    .ribbon-top-right {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      width: 440px;
+      height: 390px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ILUSTRACIÓN DE BANDERA AMPLIADA */
+    .left-illustration {
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 420px;
+      height: 580px;
+      pointer-events: none;
+      z-index: 3;
+      object-fit: contain;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 10px;
+      position: relative;
+      z-index: 4;
+    }
+
+    /* TÍTULOS ENORME TAMAÑO */
+    .main-title {
+      font-family: 'Forte', cursive, sans-serif;
+      font-size: 6.8rem;
+      color: #006847;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      line-height: 0.88;
+      text-shadow: 3px 4px 0px rgba(0,0,0,0.15);
+    }
+
+    .sub-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 3.6rem;
+      color: #3e2723;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    /* BADGE FECHA MÁS GRANDE */
+    .date-badge {
+      position: absolute;
+      top: 35px;
+      right: 70px;
+      text-align: center;
+      z-index: 5;
+    }
+
+    .date-badge .month {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.8rem;
+      color: #006847;
+      line-height: 1;
+      display: block;
+      transform: rotate(-5deg);
+    }
+
+    .date-badge .day {
+      font-family: 'Caveat', cursive;
+      font-size: 7.5rem;
+      color: #006847;
+      line-height: 0.7;
+      font-weight: bold;
+    }
+
+    /* GRID MÁS ESPACIOSO Y MONEDAS AMPLIADAS */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 250px);
+      grid-gap: 35px 80px;
+      justify-content: center;
+      margin-top: 35px;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .coin-btn {
+      width: 245px;
+      height: 245px;
+      border-radius: 50%;
+      background-image: url('moneda.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      text-decoration: none;
+      padding: 25px;
+    }
+
+    .coin-btn:hover {
+      transform: translateY(-6px) scale(1.06);
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.28));
+    }
+
+    .coin-text {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #000000;
+      text-transform: uppercase;
+      line-height: 1.1;
+      z-index: 2;
+      text-shadow: 
+        1px  1px 3px rgba(255, 255, 255, 0.95),
+       -1px -1px 3px rgba(255, 255, 255, 0.95),
+        1px -1px 3px rgba(255, 255, 255, 0.95),
+       -1px  1px 3px rgba(255, 255, 255, 0.95);
+      max-width: 200px;
+    }
+
+    .footer-info {
+      position: absolute;
+      bottom: 25px;
+      right: 40px;
+      text-align: left;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.35;
+      z-index: 5;
+    }
+
+    .footer-info p {
+      margin: 3px 0;
+    }
+
+    /* ADAPTATIVIDAD PARA PANTALLAS PEQUEÑAS / TABLETS */
+    @media (max-width: 1100px) {
+      .card-container {
+        width: 100%;
+        min-height: auto;
+        padding-bottom: 120px;
+      }
+      .menu-grid {
+        grid-template-columns: repeat(2, 170px);
+        grid-gap: 20px;
+      }
+      .coin-btn {
+        width: 170px;
+        height: 170px;
+      }
+      .coin-text {
+        font-size: 1.1rem;
+      }
+      .main-title {
+        font-size: 4.2rem;
+      }
+      .sub-title {
+        font-size: 2.2rem;
+      }
+      .left-illustration {
+        width: 260px;
+        height: 380px;
+      }
+      .date-badge {
+        right: 30px;
+        top: 20px;
+      }
+      .date-badge .month {
+        font-size: 3.2rem;
+      }
+      .date-badge .day {
+        font-size: 5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+
+    <svg class="ribbon-top-right" viewBox="0 0 300 300" fill="none">
+      <path d="M 120 0 C 180 80, 220 120, 300 160" stroke="#006847" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M 135 0 C 195 80, 235 120, 300 175" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/>
+      <path d="M 150 0 C 210 80, 250 120, 300 190" stroke="#ce1126" stroke-width="18" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <img src="bandera.png" class="left-illustration" alt="Bandera de México">
+
+    <header class="header">
+      <h1 class="main-title">MÉXICO</h1>
+      <h2 class="sub-title">Mes Patrio</h2>
+    </header>
+
+    <div class="date-badge">
+      <span class="month">Septiembre</span>
+      <span class="day">16</span>
+    </div>
+
+    <nav class="menu-grid">
+      <a href="index.html" class="coin-btn">
+        <span class="coin-text">INICIO</span>
+      </a>
+
+      <a href="FechasImportantes.html" class="coin-btn">
+        <span class="coin-text">FECHAS<br>IMPORTANTES</span>
+      </a>
+
+      <a href="personajes_ilustres.html" class="coin-btn">
+        <span class="coin-text">PERSONAJES<br>ILUSTRES</span>
+      </a>
+
+      <a href="datosYmitos.html" class="coin-btn">
+        <span class="coin-text">DATOS<br>CURIOSOS<br>Y<br>MITOS</span>
+      </a>
+    </nav>
+
+    <footer class="footer-info">
+      <p><strong>Nombre:</strong> Rangel Garcia Cesar</p>
+      <p><strong>No Control:</strong> 24308051280646</p>
+      <p><strong>Grado y Grupo:</strong> 5-I</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
