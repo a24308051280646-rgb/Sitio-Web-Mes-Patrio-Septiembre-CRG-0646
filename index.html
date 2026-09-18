@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+   <!-- Configura la codificación de caracteres para que el navegador reconozca acentos -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>México - Mes Patrio</title>
+  
+  <!-- se optimizar milisegundos la velocidad -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Montserrat:wght@700;800;900&family=Fredoka:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    /* Reseteo de márgenes y tamaños */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    /* Fondo general de la página */
     body {
       font-family: 'Montserrat', sans-serif;
       min-height: 100vh;
@@ -29,6 +34,7 @@
       padding: 40px 20px;
     }
 
+    /* contenedor principal que centra todo */
     .card-container {
       position: relative;
       width: 95vw;
@@ -48,6 +54,7 @@
       padding: 40px 50px;
     }
 
+    /* Posición del listón tricolor superior */
     .ribbon-top-right {
       position: absolute;
       top: -10px;
@@ -58,6 +65,7 @@
       z-index: 2;
     }
 
+    /* Posición de la bandera en la esquina inferior izquierda */
     .left-illustration {
       position: absolute;
       bottom: -10px;
@@ -69,6 +77,7 @@
       object-fit: contain;
     }
 
+    /* Estilos del título central */
     .header {
       text-align: center;
       margin-top: 10px;
@@ -94,6 +103,7 @@
       margin-top: 6px;
     }
 
+    /* Ubicación y tamaño de la fecha (Septiembre 16) */
     .date-badge {
       position: absolute;
       top: 35px;
@@ -119,6 +129,7 @@
       font-weight: bold;
     }
 
+    /* Distribución del menú */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 250px);
@@ -130,6 +141,7 @@
       z-index: 4;
     }
 
+    /* Botones con la imagen de moneda */
     .coin-btn {
       width: 245px;
       height: 245px;
@@ -149,11 +161,13 @@
       padding: 25px;
     }
 
+    /* Efecto cuando se pasa el mouse sobre las monedas */
     .coin-btn:hover {
       transform: translateY(-6px) scale(1.06);
       filter: drop-shadow(0 12px 18px rgba(0,0,0,0.28));
     }
 
+    /* Texto sobre de las monedas */
     .coin-text {
       font-family: 'Fredoka', sans-serif;
       font-size: 1.6rem;
@@ -170,6 +184,7 @@
       max-width: 200px;
     }
 
+    /* Posición de la información del alumno  */
     .footer-info {
       position: absolute;
       bottom: 25px;
@@ -186,12 +201,6 @@
       margin: 3px 0;
     }
 
-    @media (max-width: 1100px) {
-      .card-container {
-        width: 100%;
-        min-height: auto;
-        padding-bottom: 120px;
-      }
       .menu-grid {
         grid-template-columns: repeat(2, 170px);
         grid-gap: 20px;
@@ -230,24 +239,29 @@
 
   <div class="card-container">
 
+    <!-- Listón decorativo tricolor (Verde, Blanco, Rojo) -->
     <svg class="ribbon-top-right" viewBox="0 0 300 300" fill="none">
       <path d="M 120 0 C 180 80, 220 120, 300 160" stroke="#006847" stroke-width="18" fill="none" stroke-linecap="round"/>
       <path d="M 135 0 C 195 80, 235 120, 300 175" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/>
       <path d="M 150 0 C 210 80, 250 120, 300 190" stroke="#ce1126" stroke-width="18" fill="none" stroke-linecap="round"/>
     </svg>
 
+    <!-- Imagen de la bandera -->
     <img src="bandera.png" class="left-illustration" alt="Bandera de México">
 
+    <!-- Encabezado con los títulos -->
     <header class="header">
       <h1 class="main-title">MÉXICO</h1>
       <h2 class="sub-title">Mes Patrio</h2>
     </header>
 
+    <!-- Indicador de la fecha -->
     <div class="date-badge">
       <span class="month">Septiembre</span>
       <span class="day">16</span>
     </div>
 
+    <!-- Menú principal de enlaces -->
     <nav class="menu-grid">
       <a href="index.html" class="coin-btn">
         <span class="coin-text">INICIO</span>
@@ -266,6 +280,7 @@
       </a>
     </nav>
 
+    <!-- Pie de página con datos personales -->
     <footer class="footer-info">
       <p><strong>Nombre:</strong> Rangel Garcia Cesar</p>
       <p><strong>No Control:</strong> 24308051280646</p>
