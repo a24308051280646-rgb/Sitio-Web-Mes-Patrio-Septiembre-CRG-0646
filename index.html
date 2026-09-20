@@ -42,9 +42,7 @@
       min-height: 860px; /* alto minimo del cuadro */
       background: #eef0ed; /* fondo gris del cuadro */
       background-image: 
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(238,240,237,0.4) 100%),
-        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C45 20 60 35 80 40C60 45 45 60 40 80C35 60 20 45 0 40C20 35 35 20 40 0Z' fill='%3C%3Fxml version='1.0' encoding='UTF-8'%3E%3Cpath fill='%23d6dad3' fill-opacity='0.3' d='M0 0h80v80H0z'/%3E'/%3E%3C/svg%3E"); /* textura bonita de fondo */
-      border-radius: 20px; /* esquinas redondeadas */
+       border-radius: 20px; /* esquinas redondeadas */
       box-shadow: 0 20px 45px rgba(0,0,0,0.18); /* sombra flotante */
       overflow: hidden; /* recorta lo que se salga del marco */
       display: flex; /* flexbox para ordenar */
@@ -67,7 +65,7 @@
 
     /* Posición de la bandera en la esquina inferior izquierda */
     .left-illustration {
-      position: absolute; /* posicion libre */
+      position: absolute; /* posicion libre exacta respecto al contenedor */
       bottom: -10px; /* pegado abajo */
       left: 0; /* pegado a la izquierda */
       width: 420px; /* ancho de la bandera */
@@ -96,7 +94,7 @@
     }
 
     .sub-title {
-      font-family: 'Fredoka', sans-serif; /* letra redondita */
+      font-family: 'Fredoka', sans-serif; /* tipo letra  */
       font-size: 3.6rem; /* tamaño mediano */
       color: #3e2723; /* color cafe */
       font-weight: 700; /* texto gruesito */
@@ -113,7 +111,7 @@
     }
 
     .date-badge .month {
-      font-family: 'Great Vibes', cursive; /* letra cursiva elegante */
+      font-family: 'Great Vibes', cursive; /* letra cursiva  */
       font-size: 4.8rem; /* tamaño del mes */
       color: #006847; /* verde patrio */
       line-height: 1; /* pegado al dia */
@@ -122,7 +120,7 @@
     }
 
     .date-badge .day {
-      font-family: 'Caveat', cursive; /* letra estilo mano */
+      font-family: 'Caveat', cursive; /* estilo de letra */
       font-size: 7.5rem; /* numero gigante */
       color: #006847; /* verde patrio */
       line-height: 0.7; /* pega mas al mes */
@@ -171,14 +169,14 @@
       font-family: 'Fredoka', sans-serif; /* fuente fredoka */
       font-size: 1.6rem; /* tamaño texto */
       color: #000000; /* color negro */
-      text-transform: uppercase; /* mayusculas */
+      text-transform: uppercase; /* todas mayusculas */
       line-height: 1.1; /* renglones pegaditos */
       z-index: 2; /* texto arriba de la moneda */
       text-shadow: 
         1px  1px 3px rgba(255, 255, 255, 0.95),
        -1px -1px 3px rgba(255, 255, 255, 0.95),
         1px -1px 3px rgba(255, 255, 255, 0.95),
-       -1px  1px 3px rgba(255, 255, 255, 0.95); /* orilla blanca para leer bien */
+       -1px  1px 3px rgba(255, 255, 255, 0.95); /* orilla blanca  */
       max-width: 200px; /* ancho maximo del texto */
     }
 
