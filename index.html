@@ -184,7 +184,6 @@
 
     /* Posición de la información del alumno  */
     .footer-info {
-      position: absolute;
       bottom: 25px; /* pegado abajo */
       right: 40px; /* pegado a la derecha */
       text-align: left; /* texto alineado a la izquierda */
@@ -198,6 +197,13 @@
     .footer-info p {
       margin: 3px 0; /* espacio entre datos */
     }
+    /* Ajustes de pantalla responsiva */
+    @media (max-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 170px); /* monedas mas chicas */
+        grid-gap: 20px; /* menos espacio entre ellas */
+      }
+      
       }
       .coin-btn {
         width: 170px; /* ancho de la moneda */
