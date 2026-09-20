@@ -1,291 +1,286 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-   <!-- Configura la codificación de caracteres para que el navegador reconozca acentos -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>México - Mes Patrio</title>
+<!DOCTYPE html> <!-- tipo de documento html5 -->
+<html lang="es"> <!-- idioma de la pagina en español -->
+<head> <!-- inicio del encabezado de la pagina -->
+
+  <!-- Configura la codificación de caracteres para que el navegador reconozca acentos -->
+  <meta charset="UTF-8"> <!-- acentos y eñes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- para que se vea bien en celulares -->
+  <title>México - Mes Patrio</title> <!-- titulo de la pestaña -->
   
   <!-- se optimizar la velocidad de la pagina -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Montserrat:wght@700;800;900&family=Fredoka:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Great+Vibes&family=Montserrat:wght@700;800;900&family=Fredoka:wght@600;700;800&display=swap" rel="stylesheet"> <!-- descarga las fuentes de google -->
 
-  <style>
+  <style> <!-- inicio de estilos css -->
+
     /* Reseteo de márgenes y tamaños */
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      box-sizing: border-box; /* incluye bordes y relleno en el tamaño total */
+      margin: 0; /* quita margenes por defecto */
+      padding: 0; /* quita rellenos por defecto */
     }
 
     /* Fondo general de la página */
     body {
-      font-family: 'Montserrat', sans-serif;
-      min-height: 100vh;
-      background-color: #f2f2f0;
-      background-image: radial-gradient(#d3d3d3 1px, transparent 1px), radial-gradient(#d3d3d3 1px, #f2f2f0 1px);
-      background-size: 40px 40px;
-      background-position: 0 0, 20px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-x: hidden;
-      padding: 40px 20px;
+      font-family: 'Montserrat', sans-serif; /* letra principal montserrat */
+      min-height: 100vh; /* ocupa toda la altura de la pantalla */
+      background-color: #f2f2f0; /* color gris clarito de fondo */
+      background-image: radial-gradient(#d3d3d3 1px, transparent 1px), radial-gradient(#d3d3d3 1px, #f2f2f0 1px); /* patron de puntitos */
+      background-size: 40px 40px; /* tamaño del patron */
+      background-position: 0 0, 20px 20px; /* posicion de los puntos */
+      display: flex; /* activamos flexbox */
+      justify-content: center; /* centra horizontalmente */
+      align-items: center; /* centra verticalmente */
+      overflow-x: hidden; /* para que no salga barra abajo */
+      padding: 40px 20px; /* espacio libre alrededor */
     }
 
     /* contenedor principal que centra todo */
     .card-container {
-      position: relative;
-      width: 95vw;
-      max-width: 1550px;
-      min-height: 860px;
-      background: #eef0ed;
+      position: relative; /* posicion base para los elementos dentro */
+      width: 95vw; /* ancho al 95% de la pantalla */
+      max-width: 1550px; /* limite de ancho maximo */
+      min-height: 860px; /* alto minimo del cuadro */
+      background: #eef0ed; /* fondo gris del cuadro */
       background-image: 
         radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(238,240,237,0.4) 100%),
-        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C45 20 60 35 80 40C60 45 45 60 40 80C35 60 20 45 0 40C20 35 35 20 40 0Z' fill='%3C%3Fxml version='1.0' encoding='UTF-8'%3E%3Cpath fill='%23d6dad3' fill-opacity='0.3' d='M0 0h80v80H0z'/%3E'/%3E%3C/svg%3E");
-      border-radius: 20px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid #e0e0e0;
-      padding: 40px 50px;
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C45 20 60 35 80 40C60 45 45 60 40 80C35 60 20 45 0 40C20 35 35 20 40 0Z' fill='%3C%3Fxml version='1.0' encoding='UTF-8'%3E%3Cpath fill='%23d6dad3' fill-opacity='0.3' d='M0 0h80v80H0z'/%3E'/%3E%3C/svg%3E"); /* textura bonita de fondo */
+      border-radius: 20px; /* esquinas redondeadas */
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18); /* sombra flotante */
+      overflow: hidden; /* recorta lo que se salga del marco */
+      display: flex; /* flexbox para ordenar */
+      flex-direction: column; /* acomoda elementos en vertical */
+      justify-content: space-between; /* separa encabezado, menu y footer */
+      border: 1px solid #e0e0e0; /* borde gris delgadito */
+      padding: 40px 50px; /* espacio dentro del cuadro */
     }
 
     /* Posición del listón tricolor superior */
     .ribbon-top-right {
-      position: absolute;
-      top: -10px;
-      right: -20px;
-      width: 440px;
-      height: 390px;
-      pointer-events: none;
-      z-index: 2;
+      position: absolute; /* posicion libre */
+      top: -10px; /* pegado arriba */
+      right: -20px; /* pegado a la derecha */
+      width: 440px; /* ancho del moño */
+      height: 390px; /* alto del moño */
+      pointer-events: none; /* no estorba al hacer clic */
+      z-index: 2; /* capa encima del fondo */
     }
 
     /* Posición de la bandera en la esquina inferior izquierda */
     .left-illustration {
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 420px;
-      height: 580px;
-      pointer-events: none;
-      z-index: 3;
-      object-fit: contain;
+      position: absolute; /* posicion libre */
+      bottom: -10px; /* pegado abajo */
+      left: 0; /* pegado a la izquierda */
+      width: 420px; /* ancho de la bandera */
+      height: 580px; /* alto de la bandera */
+      pointer-events: none; /* que no interfiera clics */
+      z-index: 3; /* capa arriba del moño */
+      object-fit: contain; /* ajusta la imagen sin deformarla */
     }
 
     /* Estilos del título central */
     .header {
-      text-align: center;
-      margin-top: 10px;
-      position: relative;
-      z-index: 4;
+      text-align: center; /* centra el texto */
+      margin-top: 10px; /* espacio arriba */
+      position: relative; /* posicion relativa */
+      z-index: 4; /* capa visible */
     }
 
     .main-title {
-      font-family: 'Forte', cursive, sans-serif;
-      font-size: 6.8rem;
-      color: #006847;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      line-height: 0.88;
-      text-shadow: 3px 4px 0px rgba(0,0,0,0.15);
+      font-family: 'Forte', cursive, sans-serif; /* letra tipo forte */
+      font-size: 6.8rem; /* texto muy grande */
+      color: #006847; /* verde bandera */
+      text-transform: uppercase; /* puras mayusculas */
+      letter-spacing: 4px; /* espacio entre letras */
+      line-height: 0.88; /* juntas las lineas */
+      text-shadow: 3px 4px 0px rgba(0,0,0,0.15); /* sombra suave de texto */
     }
 
     .sub-title {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 3.6rem;
-      color: #3e2723;
-      font-weight: 700;
-      margin-top: 6px;
+      font-family: 'Fredoka', sans-serif; /* letra redondita */
+      font-size: 3.6rem; /* tamaño mediano */
+      color: #3e2723; /* color cafe */
+      font-weight: 700; /* texto gruesito */
+      margin-top: 6px; /* espacio con el titulo arriba */
     }
 
     /* Ubicación y tamaño de la fecha (Septiembre 16) */
     .date-badge {
-      position: absolute;
-      top: 35px;
-      right: 70px;
-      text-align: center;
-      z-index: 5;
+      position: absolute; /* posicion libre en esquina */
+      top: 35px; /* bajado de arriba */
+      right: 70px; /* pegado a la derecha */
+      text-align: center; /* centrado */
+      z-index: 5; /* capa por encima */
     }
 
     .date-badge .month {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4.8rem;
-      color: #006847;
-      line-height: 1;
-      display: block;
-      transform: rotate(-5deg);
+      font-family: 'Great Vibes', cursive; /* letra cursiva elegante */
+      font-size: 4.8rem; /* tamaño del mes */
+      color: #006847; /* verde patrio */
+      line-height: 1; /* pegado al dia */
+      display: block; /* renglon propio */
+      transform: rotate(-5deg); /* inclinacion chuequita */
     }
 
     .date-badge .day {
-      font-family: 'Caveat', cursive;
-      font-size: 7.5rem;
-      color: #006847;
-      line-height: 0.7;
-      font-weight: bold;
+      font-family: 'Caveat', cursive; /* letra estilo mano */
+      font-size: 7.5rem; /* numero gigante */
+      color: #006847; /* verde patrio */
+      line-height: 0.7; /* pega mas al mes */
+      font-weight: bold; /* letras gruesas */
     }
 
     /* Distribución del menú */
     .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 250px);
-      grid-gap: 35px 80px;
-      justify-content: center;
-      margin-top: 35px;
-      margin-bottom: 50px;
-      position: relative;
-      z-index: 4;
+      display: grid; /* acomodo en cuadricula */
+      grid-template-columns: repeat(2, 250px); /* 2 columnas de 250px */
+      grid-gap: 35px 80px; /* espacio entre monedas */
+      justify-content: center; /* centra las monedas */
+      margin-top: 35px; /* espacio arriba */
+      margin-bottom: 50px; /* espacio abajo */
+      position: relative; /* posicion relativa */
+      z-index: 4; /* encima del fondo */
     }
 
     /* Botones con la imagen de moneda */
     .coin-btn {
-      width: 245px;
-      height: 245px;
-      border-radius: 50%;
-      background-image: url('moneda.png');
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.2s ease, filter 0.2s ease;
-      text-decoration: none;
-      padding: 25px;
+      width: 245px; /* ancho del boton */
+      height: 245px; /* alto del boton */
+      border-radius: 50%; /* lo hace circulo */
+      background-image: url('moneda.png'); /* pon la imagen de moneda */
+      background-size: contain; /* ajusta la moneda dentro */
+      background-position: center; /* centrada */
+      background-repeat: no-repeat; /* que no se repita */
+      display: flex; /* flexbox para centrar texto */
+      justify-content: center; /* centra texto a los lados */
+      align-items: center; /* centra texto arriba y abajo */
+      cursor: pointer; /* cambia el puntero a manita */
+      position: relative; /* posicion relativa */
+      transition: transform 0.2s ease, filter 0.2s ease; /* animacion suave */
+      text-decoration: none; /* quita lo subrayado del link */
+      padding: 25px; /* espacio por dentro */
     }
 
     /* Efecto cuando se pasa el mouse sobre las monedas */
     .coin-btn:hover {
-      transform: translateY(-6px) scale(1.06);
-      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.28));
+      transform: translateY(-6px) scale(1.06); /* sube un poquito y se agranda */
+      filter: drop-shadow(0 12px 18px rgba(0,0,0,0.28)); /* sombra mas marcada */
     }
 
     /* Texto sobre de las monedas */
     .coin-text {
-      font-family: 'Fredoka', sans-serif;
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #000000;
-      text-transform: uppercase;
-      line-height: 1.1;
-      z-index: 2;
+      font-family: 'Fredoka', sans-serif; /* fuente fredoka */
+      font-size: 1.6rem; /* tamaño texto */
+      color: #000000; /* color negro */
+      text-transform: uppercase; /* mayusculas */
+      line-height: 1.1; /* renglones pegaditos */
+      z-index: 2; /* texto arriba de la moneda */
       text-shadow: 
         1px  1px 3px rgba(255, 255, 255, 0.95),
        -1px -1px 3px rgba(255, 255, 255, 0.95),
         1px -1px 3px rgba(255, 255, 255, 0.95),
-       -1px  1px 3px rgba(255, 255, 255, 0.95);
-      max-width: 200px;
+       -1px  1px 3px rgba(255, 255, 255, 0.95); /* orilla blanca para leer bien */
+      max-width: 200px; /* ancho maximo del texto */
     }
 
     /* Posición de la información del alumno  */
     .footer-info {
-      position: absolute;
-      bottom: 25px;
-      right: 40px;
-      text-align: left;
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #1a1a1a;
-      line-height: 1.35;
-      z-index: 5;
+      position: absolute; /* posicion libre abajo */
+      bottom: 25px; /* pegado abajo */
+      right: 40px; /* pegado a la derecha */
+      text-align: left; /* texto alineado a la izquierda */
+      font-size: 1.15rem; /* tamaño de letra */
+      font-weight: 800; /* negrita */
+      color: #1a1a1a; /* color casi negro */
+      line-height: 1.35; /* separacion entre renglones */
+      z-index: 5; /* capa bien arriba */
     }
 
     .footer-info p {
-      margin: 3px 0;
+      margin: 3px 0; /* espacio entre datos */
     }
-
-      .menu-grid {
-        grid-template-columns: repeat(2, 170px);
-        grid-gap: 20px;
       }
       .coin-btn {
-        width: 170px;
-        height: 170px;
+        width: 170px; /* ancho de la moneda */
+        height: 170px; /* alto de la moneda */
       }
       .coin-text {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* tamaño de la letras de la moneda */
       }
       .main-title {
-        font-size: 4.2rem;
+        font-size: 4.2rem; /* tamaño del titulo */
       }
       .sub-title {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* tamaño del subtitulo */
       }
       .left-illustration {
-        width: 260px;
-        height: 380px;
+        width: 260px; /* tamaño de la bandera */
+        height: 380px; /* lo alto de la bandera  */
       }
       .date-badge {
-        right: 30px;
-        top: 20px;
+        right: 30px; /* mover la fecha */
+        top: 20px; /* acomodar la altura */
       }
       .date-badge .month {
-        font-size: 3.2rem;
+        font-size: 3.2rem; /* tamaño del mes  */
       }
       .date-badge .day {
-        font-size: 5rem;
+        font-size: 5rem; /* tamaño del dia */
       }
     }
-  </style>
-</head>
-<body>
+  </style> <!-- fin de estilos css -->
+</head> <!-- fin del encabezado -->
+<body> <!-- inicio del cuerpo de la pagina -->
 
-  <div class="card-container">
+  <div class="card-container"> <!-- contenedor principal -->
 
-    <!-- Listón decorativo  -->
-    <svg class="ribbon-top-right" viewBox="0 0 300 300" fill="none">
-      <path d="M 120 0 C 180 80, 220 120, 300 160" stroke="#006847" stroke-width="18" fill="none" stroke-linecap="round"/>
-      <path d="M 135 0 C 195 80, 235 120, 300 175" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/>
-      <path d="M 150 0 C 210 80, 250 120, 300 190" stroke="#ce1126" stroke-width="18" fill="none" stroke-linecap="round"/>
-    </svg>
+    <!-- Liston decorativo  -->
+    <svg class="ribbon-top-right" viewBox="0 0 300 300" fill="none"> <!-- svg del moño tricolor -->
+      <path d="M 120 0 C 180 80, 220 120, 300 160" stroke="#006847" stroke-width="18" fill="none" stroke-linecap="round"/> <!-- trazo de la franja verde -->
+      <path d="M 135 0 C 195 80, 235 120, 300 175" stroke="#ffffff" stroke-width="18" fill="none" stroke-linecap="round"/> <!-- trazo de la franja blanca -->
+      <path d="M 150 0 C 210 80, 250 120, 300 190" stroke="#ce1126" stroke-width="18" fill="none" stroke-linecap="round"/> <!-- trazo de la franja roja -->
+    </svg> <!-- fin del liston -->
 
     <!-- Imagen de la bandera -->
-    <img src="bandera.png" class="left-illustration" alt="Bandera de México">
+    <img src="bandera.png" class="left-illustration" alt="Bandera de México"> <!-- imagen de la bandera de mexico -->
 
     <!-- Encabezado con los títulos -->
-    <header class="header">
-      <h1 class="main-title">MÉXICO</h1>
-      <h2 class="sub-title">Mes Patrio</h2>
-    </header>
+    <header class="header"> <!-- contenedor del encabezado -->
+      <h1 class="main-title">MÉXICO</h1> <!-- titulo mexico -->
+      <h2 class="sub-title">Mes Patrio</h2> <!-- subtitulo mes patrio -->
+    </header> <!-- fin del encabezado -->
 
     <!-- Indicador de la fecha -->
-    <div class="date-badge">
-      <span class="month">Septiembre</span>
-      <span class="day">16</span>
-    </div>
+    <div class="date-badge"> <!-- caja de la fecha -->
+      <span class="month">Septiembre</span> <!-- texto del mes -->
+      <span class="day">16</span> <!-- numero del dia -->
+    </div> <!-- fin fecha -->
 
     <!-- Menú principal de los botones -->
-    <nav class="menu-grid">
-      <a href="index.html" class="coin-btn">
-        <span class="coin-text">INICIO</span>
-      </a>
+    <nav class="menu-grid"> <!-- menu contenedor de monedas -->
+      <a href="index.html" class="coin-btn"> <!-- boton moneda inicio -->
+        <span class="coin-text">INICIO</span> <!-- texto inicio -->
+      </a> <!-- fin boton inicio -->
 
-      <a href="FechasImportantes.html" class="coin-btn">
-        <span class="coin-text">FECHAS<br>IMPORTANTES</span>
-      </a>
+      <a href="FechasImportantes.html" class="coin-btn"> <!-- boton moneda fechas -->
+        <span class="coin-text">FECHAS<br>IMPORTANTES</span> <!-- texto fechas importantes -->
+      </a> <!-- fin boton fechas -->
 
-      <a href="personajes_ilustres.html" class="coin-btn">
-        <span class="coin-text">PERSONAJES<br>ILUSTRES</span>
-      </a>
+      <a href="personajes_ilustres.html" class="coin-btn"> <!-- boton moneda personajes -->
+        <span class="coin-text">PERSONAJES<br>ILUSTRES</span> <!-- texto personajes ilustres -->
+      </a> <!-- fin boton personajes -->
 
-      <a href="datosYmitos.html" class="coin-btn">
-        <span class="coin-text">DATOS<br>CURIOSOS<br>Y<br>MITOS</span>
-      </a>
-    </nav>
+      <a href="datosYmitos.html" class="coin-btn"> <!-- boton moneda datos y mitos -->
+        <span class="coin-text">DATOS<br>CURIOSOS<br>Y<br>MITOS</span> <!-- texto datos y mitos -->
+      </a> <!-- fin boton datos y mitos -->
+    </nav> <!-- fin del menu -->
 
-    <!-- datos del alumno -->
-    <footer class="footer-info">
-      <p><strong>Nombre:</strong> Rangel Garcia Cesar</p>
-      <p><strong>No Control:</strong> 24308051280646</p>
-      <p><strong>Grado y Grupo:</strong> 5-I</p>
-    </footer>
+    <footer class="footer-info"> <!-- pie de pagina con mis datos -->
+      <p><strong>Nombre:</strong> Rangel Garcia Cesar</p> <!-- mi nombre -->
+      <p><strong>No Control:</strong> 24308051280646</p> <!-- mi numero de control -->
+      <p><strong>Grado y Grupo:</strong> 5-I</p> <!-- mi grado y grupo -->
+    </footer> 
 
-  </div>
+  </div> 
 
 </body>
-</html>
+</html> 
