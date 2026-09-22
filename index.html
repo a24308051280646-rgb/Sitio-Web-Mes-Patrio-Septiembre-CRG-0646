@@ -13,117 +13,114 @@
 
     /* Reseteo de márgenes y tamaños */
     * {
-      box-sizing: border-box; /* incluye bordes y relleno en el tamaño total */
-      margin: 0; /* quita margenes por defecto */
-      padding: 0; /* quita rellenos por defecto */
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
     }
 
     /* Fondo general de la página */
     body {
-      font-family: 'Montserrat', sans-serif; /* letra principal montserrat */
-      min-height: 100vh; /* ocupa toda la altura de la pantalla */
-      background-color: #f2f2f0; /* color gris clarito de fondo */
-      background-image: radial-gradient(#d3d3d3 1px, transparent 1px), radial-gradient(#d3d3d3 1px, #f2f2f0 1px); /* patron de puntitos */
-      background-size: 40px 40px; /* tamaño del patron */
-      background-position: 0 0, 20px 20px; /* posicion de los puntos */
+      font-family: 'Montserrat', sans-serif; 
+      min-height: 100vh; 
+      background-color: #f2f2f0; 
       display: flex; /* activamos flexbox */
-      justify-content: center; /* centra horizontalmente */
-      align-items: center; /* centra verticalmente */
-      overflow-x: hidden; /* para que no salga barra abajo */
-      padding: 40px 20px; /* espacio libre alrededor */
+      justify-content: center;
+      align-items: center; 
+      overflow-x: hidden; 
+      padding: 40px 20px; 
     }
 
     /* contenedor principal que centra todo */
     .card-container {
-      position: relative; /* posicion base para los elementos dentro */
-      width: 95vw; /* ancho al 95% de la pantalla */
-      max-width: 1550px; /* limite de ancho maximo */
-      min-height: 860px; /* alto minimo del cuadro */
-      background: #eef0ed; /* fondo gris del cuadro */
+      position: relative;
+      width: 95vw; 
+      max-width: 1550px; 
+      min-height: 860px; 
+      background: #eef0ed;
       background-image: 
-       border-radius: 20px; /* esquinas redondeadas */
-      box-shadow: 0 20px 45px rgba(0,0,0,0.18); /* sombra flotante */
-      overflow: hidden; /* recorta lo que se salga del marco */
-      display: flex; /* flexbox para ordenar */
-      flex-direction: column; /* acomoda elementos en vertical */
-      justify-content: space-between; /* separa encabezado, menu y footer */
-      border: 1px solid #e0e0e0; /* borde gris delgadito */
-      padding: 40px 50px; /* espacio dentro del cuadro */
+       border-radius: 20px; 
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+      overflow: hidden; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+      border: 1px solid #e0e0e0; 
+      padding: 40px 50px; 
     }
 
-    /* Posición del listón tricolor superior */
+    /* Posición del listón */
     .ribbon-top-right {
-      position: absolute; /* posicion libre */
-      top: -10px; /* pegado arriba */
-      right: -20px; /* pegado a la derecha */
-      width: 440px; /* ancho del moño */
-      height: 390px; /* alto del moño */
-      pointer-events: none; /* no estorba al hacer clic */
-      z-index: 2; /* capa encima del fondo */
+      position: absolute; 
+      top: -10px; 
+      right: -20px; 
+      width: 440px; 
+      height: 390px; 
+      pointer-events: none; 
+      z-index: 2; 
     }
 
-    /* Posición de la bandera en la esquina inferior izquierda */
+    /* Posición de la bandera */
     .left-illustration {
-      position: absolute; /* posicion libre exacta respecto al contenedor */
-      bottom: -10px; /* pegado abajo */
-      left: 0; /* pegado a la izquierda */
-      width: 420px; /* ancho de la bandera */
-      height: 580px; /* alto de la bandera */
-      pointer-events: none; /* que no interfiera clics */
-      z-index: 3; /* capa arriba del moño */
-      object-fit: contain; /* ajusta la imagen sin deformarla */
+      position: absolute; 
+      bottom: -10px; 
+      left: 0;
+      width: 420px;
+      height: 580px; 
+      pointer-events: none; 
+      z-index: 3;
+      object-fit: contain; 
     }
 
-    /* Estilos del título central */
+    /* título central */
     .header {
-      text-align: center; /* centra el texto */
-      margin-top: 10px; /* espacio arriba */
-      position: relative; /* posicion relativa */
-      z-index: 4; /* capa visible */
+      text-align: center; 
+      margin-top: 10px; 
+      position: relative; 
+      z-index: 4; 
     }
 
     .main-title {
-      font-family: 'Forte', cursive, sans-serif; /* letra tipo forte */
-      font-size: 6.8rem; /* texto muy grande */
-      color: #006847; /* verde bandera */
-      text-transform: uppercase; /* puras mayusculas */
-      letter-spacing: 4px; /* espacio entre letras */
-      line-height: 0.88; /* juntas las lineas */
-      text-shadow: 3px 4px 0px rgba(0,0,0,0.15); /* sombra suave de texto */
+      font-family: 'Forte', cursive, sans-serif; 
+      font-size: 6.8rem; 
+      color: #006847; 
+      text-transform: uppercase; 
+      letter-spacing: 4px;
+      line-height: 0.88; 
+      text-shadow: 3px 4px 0px rgba(0,0,0,0.15); 
     }
 
     .sub-title {
-      font-family: 'Fredoka', sans-serif; /* tipo letra  */
-      font-size: 3.6rem; /* tamaño mediano */
-      color: #3e2723; /* color cafe */
-      font-weight: 700; /* texto gruesito */
-      margin-top: 6px; /* espacio con el titulo arriba */
+      font-family: 'Fredoka', sans-serif; 
+      font-size: 3.6rem; 
+      color: #3e2723;
+      font-weight: 700; 
+      margin-top: 6px; 
     }
 
     /* Ubicación y tamaño de la fecha (Septiembre 16) */
     .date-badge {
-      position: absolute; /* posicion libre en esquina */
-      top: 35px; /* bajado de arriba */
-      right: 70px; /* pegado a la derecha */
-      text-align: center; /* centrado */
-      z-index: 5; /* capa por encima */
+      position: absolute; 
+      top: 35px; 
+      right: 70px;
+      text-align: center; 
+      z-index: 5; 
     }
 
     .date-badge .month {
-      font-family: 'Great Vibes', cursive; /* letra cursiva  */
-      font-size: 4.8rem; /* tamaño del mes */
-      color: #006847; /* verde patrio */
-      line-height: 1; /* pegado al dia */
-      display: block; /* renglon propio */
-      transform: rotate(-5deg); /* inclinacion chuequita */
+      font-family: 'Great Vibes', cursive; 
+      font-size: 4.8rem; 
+      color: #006847; 
+      line-height: 1; 
+      display: block; 
+      transform: rotate(-5deg); 
     }
 
     .date-badge .day {
-      font-family: 'Caveat', cursive; /* estilo de letra */
-      font-size: 7.5rem; /* numero gigante */
-      color: #006847; /* verde patrio */
-      line-height: 0.7; /* pega mas al mes */
-      font-weight: bold; /* letras gruesas */
+      font-family: 'Caveat', cursive; 
+      font-size: 7.5rem; 
+      color: #006847; 
+      line-height: 0.7; 
+      font-weight: bold; 
     }
 
     /* Distribución del menu */
@@ -196,7 +193,11 @@
     }
 
       }
-      
+          
+    @media (max-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 170px); 
+        grid-gap: 20px; 
       }
       .coin-btn {
         width: 170px; 
